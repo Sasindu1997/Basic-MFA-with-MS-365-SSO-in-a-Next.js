@@ -43,11 +43,12 @@ Grant admin consent for the requested permissions.
 # Step 5: Create a .env.local file to store your Azure AD credentials:
 
 
+```bash
 AZURE_AD_CLIENT_ID=your-client-id
 AZURE_AD_CLIENT_SECRET=your-client-secret
 AZURE_AD_TENANT_ID=your-tenant-id
 NEXTAUTH_URL=your-application-url
-
+```
 
 Then, run the development server:
 
