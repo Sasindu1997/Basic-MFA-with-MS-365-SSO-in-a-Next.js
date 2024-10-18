@@ -2,16 +2,57 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+**Application Registration in Azure AD
+**
+**Step 1: Register the Next.js App in Azure AD
+**
+Go to the Azure Portal and navigate to Azure Active Directory.
+
+In the left sidebar, select App registrations and then click New registration.
+
+Name: Choose a name for the app (e.g., Next.js SSO App).
+
+Supported account types: Choose whether this app is for single or multi-tenant use.
+
+Redirect URI: Add the URL where Azure AD will redirect after successful authentication.
+
+For local development: http://localhost:3000/api/auth/callback/azure-ad
+
+Click Register to create the app.
+
+**Step 2: Configure Authentication
+**
+Go to the Authentication tab and add your redirect URI(s).
+
+Check the box for ID tokens (used for implicit and hybrid flows).
+
+**Step 3: Create Client Secret
+**
+Navigate to Certificates & Secrets and create a new client secret.
+
+Save this secret securely as it will be used in your Next.js app configuration.
+
+**Step 4: Set API Permissions
+**
+Navigate to API permissions.
+
+Add the following Microsoft Graph API permissions: email, profile, openid.
+
+Grant admin consent for the requested permissions.
+
+**Step 5: Create a .env.local file to store your Azure AD credentials:
+**
+
+AZURE_AD_CLIENT_ID=your-client-id
+AZURE_AD_CLIENT_SECRET=your-client-secret
+AZURE_AD_TENANT_ID=your-tenant-id
+NEXTAUTH_URL=your-application-url
+
+
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
